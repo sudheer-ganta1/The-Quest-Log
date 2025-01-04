@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The quest log</title>
+    <link rel="stylesheet" href="list.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <h1 class="logo">The Quest Log</h1>
+        <p class="subtitle">First rule: Always complete your tasks.</p>
+      </header>
+
+      <main class="main-content">
+        <div class="todo-container">
+          <div class="input-group">
+            <input
+              type="text"
+              id="taskInput"
+              class="task-input"
+              placeholder="What needs to be done?"
+            />
+            <select id="prioritySelect" class="priority-select">
+              <option value="low">Low Priority</option>
+              <option value="medium">Medium Priority</option>
+              <option value="high">High Priority</option>
+            </select>
+            <button onclick="addTask()" class="add-btn">Add Task</button>
+          </div>
+
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search tasks..."
+            />
+          </div>
+
+          <div class="filters">
+            <button class="filter-btn active" onclick="filterTasks('all')">
+              All
+            </button>
+            <button class="filter-btn" onclick="filterTasks('active')">
+              Active
+            </button>
+            <button class="filter-btn" onclick="filterTasks('completed')">
+              Completed
+            </button>
+          </div>
+
+          <ul id="todoList" class="todo-list"></ul>
+        </div>
+
+        <aside class="sidebar">
+          <div class="stats">
+            <h2 class="sidebar-title">Statistics</h2>
+            <div class="stat-item">
+              <span class="stat-label">Total Tasks</span>
+              <span id="totalTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Completed</span>
+              <span id="completedTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Pending</span>
+              <span id="pendingTasks" class="stat-value">0</span>
+            </div>
+          </div>
+
+          <div class="activity-log">
+            <h2 class="sidebar-title">Recent Activity</h2>
+            <div id="activityLog"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="list.js"></script>
+  </body>
+</html>
